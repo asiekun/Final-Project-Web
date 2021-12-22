@@ -5,8 +5,26 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 include "functions.php";
+// cek apakah tombol tambah sudah ditekan atau belum
+if (isset($_POST["tambah"])) {
+    // cek apakah data berhasil ditambahkan atau tidak
+    if (tambah($_POST) > 0) {
+        echo "
+            <script>
+                alert('data berhasil ditambahkan!');
+                document.location.href = 'index.php';
+            </script>
+        ";
+    }else {
+        echo "
+            <script>
+                alert('data gagal ditambahkan!');
+                document.location.href = 'index.php';
+            </script>
+        ";
+    }
+}
 
-$data = query("SELECT * FROM databarang");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,11 +60,11 @@ $data = query("SELECT * FROM databarang");
                             </a>
                         </li>
                         <hr>
-                        <div class="dropdown ">
+                        <div class="dropdown">
                             <a href="#"
                                 class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                                 id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="assets/img/sign-out.png" alt="keluar" width="30" height="30"
+                                <img src="assets/img/sign-out.png" alt="hugenerd" width="30" height="30"
                                     class="rounded-circle">
                                 <span class="d-none d-sm-inline mx-1">SuperAsix Mart</span>
                             </a>
@@ -57,36 +75,38 @@ $data = query("SELECT * FROM databarang");
                     </ul>
                 </div>
             </div>
-            <div class="col py-3 text-center">
-                <h1>Detail Barang</h1>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Nama Barang</th>
-                            <th scope="col">Harga Barang</th>
-                            <th scope="col">Stok</th>
-                            <th scope="col">Next</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1; ?>
-                        <?php foreach($data as $row): ?>
-                        <tr>
-                            <td><?= $i; ?></td>
-                            <td><?= $row["namabarang"];?></td>
-                            <td><?= rupiah($row["hargabarang"]);?></td>
-                            <td><?= $row["stok"];?></td>
-                            <td>
-                                <a href="edit.php?id=<?= $row['id'];?>" class="btn btn-success" role="button">Edit</a>
-                                <a href="hapus.php?id=<?= $row['id']?>" class="btn btn-danger" role="button"
-                                    onclick="return confirm('Ingin menghapus data?')">Hapus</a>
-                            </td>
-                        </tr>
-                        <?php $i++; ?>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+            <div class="container" style="width: 65%;">
+                <div class="card mt-3">
+                    <div class="card-header bg-info text-white">
+                        From Tambah Data Barang
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="POST">
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">Nama Barang</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="namabarang" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">Harga Barang</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="hargabarang" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">Stok</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="stok" required>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex pt-3 justify-content-md-end">
+                                <button class="btn btn-danger" type="reset">Kosongkan</button>
+                                <button class="btn btn-info me-md-2" name="tambah" type="submit">Tambah</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
