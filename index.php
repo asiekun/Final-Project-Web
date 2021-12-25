@@ -15,29 +15,29 @@ $data = query("SELECT * FROM databarang");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>SUPER ASIX MART</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background-color: rgb(134, 243, 197);">
     <div class="container-fluid">
         <div class="row flex-nowrap">
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <a href="/"
+                    <a href="#"
                         class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline"><b>DASHBOARD</b></span>
+                        <span class="fs-5 d-none d-sm-inline"><b>SUPER ASIX MART</b></span>
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
                         id="menu">
                         <li class="nav-item">
-                            <a href="index.php" class="nav-link align-middle px-0">
+                            <a href="index.php" class="nav-link align-middle px-0" style="color: white;">
                                 Home
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="tambah.php" class="nav-link align-middle px-0">
+                            <a href="tambah.php" class="nav-link align-middle px-0" style="color: white;">
                                 Tambah Data
                             </a>
                         </li>
@@ -59,7 +59,7 @@ $data = query("SELECT * FROM databarang");
             </div>
             <div class="col py-3 text-center">
                 <h1>Detail Barang</h1>
-                <table class="table">
+                <table class="table table-secondary table-striped" >
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
@@ -76,7 +76,7 @@ $data = query("SELECT * FROM databarang");
                             <td><?= $i; ?></td>
                             <td><?= $row["namabarang"];?></td>
                             <td><?= rupiah($row["hargabarang"]);?></td>
-                            <td><?= $row["stok"];?></td>
+                            <td><?= $row["stock"];?></td>
                             <td>
                                 <a href="edit.php?id=<?= $row['id'];?>" class="btn btn-success" role="button">Edit</a>
                                 <a href="hapus.php?id=<?= $row['id']?>" class="btn btn-danger" role="button"
