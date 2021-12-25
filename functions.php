@@ -51,7 +51,7 @@ function tambah($data){
     global $conn;
     $namabarang     = htmlspecialchars($data["namabarang"]);
     $hargabarang    = htmlspecialchars($data["hargabarang"]);
-    $stok           = htmlspecialchars($data["stok"]);
+    $stok           = htmlspecialchars($data["stock"]);
 
     $query = "INSERT INTO databarang VALUES('', '$namabarang', '$hargabarang', '$stok')";
 
@@ -72,12 +72,12 @@ function ubah($data){
     $id             = $data["id"];
     $namabarang     = htmlspecialchars($data["namabarang"]);
     $hargabarang    = htmlspecialchars($data["hargabarang"]);
-    $stok           = htmlspecialchars($data["stok"]);
+    $stok           = htmlspecialchars($data["stock"]);
 
     $query = "UPDATE  databarang SET 
                 namabarang = '$namabarang',
                 hargabarang = '$hargabarang',
-                stok = '$stok'
+                stock = '$stok'
                 WHERE id = $id
                 ";
 

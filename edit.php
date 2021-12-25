@@ -39,29 +39,29 @@ if (isset($_POST["simpan"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>EDIT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background-color: rgb(134, 243, 197);">
     <div class="container-fluid">
         <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark" >
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                     <a href="/"
                         class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <span class="fs-5 d-none d-sm-inline"><b>DASHBOARD</b></span>
+                        <span class="fs-5 d-none d-sm-inline"><b>SUPER ASIX MART</b></span>
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
                         id="menu">
-                        <li class="nav-item">
-                            <a href="index.php" class="nav-link align-middle px-0">
+                        <li class="nav-item" >
+                            <a href="index.php" class="nav-link align-middle px-0" style="color: white;">
                                 Home
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="tambah.php" class="nav-link align-middle px-0">
+                            <a href="tambah.php" class="nav-link align-middle px-0" style="color: white;">
                                 Tambah Data
                             </a>
                         </li>
@@ -83,8 +83,8 @@ if (isset($_POST["simpan"])) {
             </div>
             <div class="container" style="width: 65%;">
                 <div class="card mt-3">
-                    <div class="card-header bg-info text-white">
-                        From Edit Data Barang
+                    <div class="card-header text-white" style="background-color: rgb(28, 92, 65);">
+                        Form Edit Data Barang
                     </div>
                     <div class="card-body">
                         <form action="" method="POST">
@@ -106,12 +106,12 @@ if (isset($_POST["simpan"])) {
                             <div class="row mb-3">
                                 <label class="col-sm-2 col-form-label">Stok</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="stok" value="<?= $data["stok"]; ?>"
+                                    <input type="text" class="form-control" name="stock" value="<?= $data["stock"]; ?>"
                                         required>
                                 </div>
                             </div>
                             <div class="d-grid gap-2 d-md-flex pt-3 justify-content-md-end">
-                                <button class="btn btn-info me-md-2" name="simpan" type="submit">Simpan</button>
+                                <button class="btn btn-info me-md-2" style="color: white;" name="simpan" type="submit">Simpan</button>
                             </div>
                         </form>
                     </div>
